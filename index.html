@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مؤسسة تازمارت الخيرية - غرداية - الجزائر</title>
+    <!-- Google Fonts: Cairo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root { --primary-blue: #163b88; --accent-red: #d92525; --dark-red: #8b1111; --bg-light: #e6f2fc; --white: #ffffff; --slate-800: #1e293b; --slate-600: #475569; --slate-500: #64748b; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Cairo', sans-serif; -webkit-tap-highlight-color: transparent; }
+        body { background-color: #dceefe; background-image: radial-gradient(at 0% 0%, rgba(186, 230, 253, 0.7) 0px, transparent 50%), radial-gradient(at 100% 100%, rgba(191, 219, 254, 0.7) 0px, transparent 50%), linear-gradient(180deg, #d8ebfb 0%, #e8f4fd 50%, #d8ebfb 100%); min-height: 100vh; color: var(--slate-800); display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 20px 14px 35px; }
+        .bg-pattern { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; opacity: 0.45; background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 10 L85 30 L85 70 L50 90 L15 70 L15 30 Z' fill='none' stroke='%2393c5fd' stroke-width='0.7'/%3E%3Ccircle cx='50' cy='10' r='2' fill='%2360a5fa'/%3E%3Ccircle cx='85' cy='30' r='2' fill='%2360a5fa'/%3E%3C/svg%3E"); }
+        .main-container { width: 100%; max-width: 490px; position: relative; z-index: 1; display: flex; flex-direction: column; gap: 15px; }
+
+        /* Top Status Pill */
+        .top-badge { align-self: center; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); border: 1px solid #bfdbfe; color: var(--primary-blue); font-size: 0.78rem; font-weight: 800; padding: 5px 16px; border-radius: 9999px; display: inline-flex; align-items: center; gap: 7px; box-shadow: 0 2px 8px rgba(22, 59, 136, 0.08); margin-bottom: -4px; }
+        .pulse-dot { width: 8px; height: 8px; background-color: #10b981; border-radius: 50%; box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25); }
+
+        /* HEADER CARD */
+        .header-card { background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(12px); border-radius: 26px; padding: 24px 20px 20px; text-align: center; border: 2px solid #bfdbfe; box-shadow: 0 12px 30px rgba(22, 59, 136, 0.09); }
+        .logo-wrap { width: 135px; height: 135px; margin: 0 auto 12px; background: #ffffff; border-radius: 50%; padding: 6px; box-shadow: 0 6px 18px rgba(22, 59, 136, 0.12); border: 3px solid #bfdbfe; transition: transform 0.3s ease; }
+        .logo-wrap:hover { transform: scale(1.04); }
+        .logo-wrap img { width: 100%; height: 100%; object-fit: contain; border-radius: 50%; }
+        .calligraphy-banner { width: 100%; max-width: 360px; margin: 0 auto; }
+        .calligraphy-banner img { width: 100%; height: auto; display: block; margin: 0 auto; }
+
+        /* FREE PATIENT TRANSPORT CARD WITH BLURRED BACKGROUND */
+        .transport-card { background: linear-gradient(135deg, #e02424 0%, #b91c1c 50%, #7f1d1d 100%); border-radius: 22px; padding: 16px 14px; color: #ffffff; text-align: center; border: 2px solid #fca5a5; box-shadow: 0 12px 28px rgba(185, 28, 28, 0.38); position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 12px; }
+        .transport-header { display: flex; align-items: center; justify-content: center; }
+        .transport-title { font-size: 1.35rem; font-weight: 900; letter-spacing: 0.3px; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.35); }
+        .ambulance-banner-container { width: 100%; height: 220px; border-radius: 16px; position: relative; overflow: hidden; border: 1.5px solid rgba(255, 255, 255, 0.3); background-color: #1e293b; box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3); display: flex; align-items: flex-end; justify-content: center; padding: 12px; }
+        .ambulance-bg-img { position: absolute; top: -6px; left: -6px; width: calc(100% + 12px); height: calc(100% + 12px); object-fit: cover; object-position: center; filter: blur(2px) brightness(0.88); transform: scale(1.02); transition: transform 0.4s ease, filter 0.4s ease; }
+        .transport-card:hover .ambulance-bg-img { transform: scale(1.05); filter: blur(1.2px) brightness(0.92); }
+        .ambulance-gradient-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.65) 100%); z-index: 1; }
+        .ambulance-overlay-actions { position: relative; z-index: 2; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+        .amb-btn { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 9px 8px; border-radius: 12px; text-decoration: none; backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.4); box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3); transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1); }
+        .amb-btn-whatsapp { background: rgba(37, 211, 102, 0.92); color: #ffffff; }
+        .amb-btn-call { background: rgba(255, 255, 255, 0.95); color: #b91c1c; }
+        .amb-btn:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35); }
+        .amb-btn:active { transform: translateY(0) scale(0.98); }
+        .amb-btn-label { display: flex; align-items: center; gap: 6px; font-size: 0.82rem; font-weight: 800; }
+        .amb-btn-num { font-size: 0.96rem; font-weight: 900; direction: ltr; letter-spacing: 0.5px; margin-top: 2px; }
+
+        /* SECTION HEADINGS */
+        .section-label { font-size: 0.98rem; font-weight: 900; color: var(--primary-blue); margin: 4px 6px -4px; display: flex; align-items: center; justify-content: space-between; }
+        .section-label-main { display: flex; align-items: center; gap: 8px; }
+        .section-subnote { font-size: 0.78rem; font-weight: 700; color: #2563eb; background: #e0edff; padding: 3px 10px; border-radius: 9999px; border: 1px solid #bfdbfe; }
+
+        /* PHONES CONTAINER */
+        .phones-rectangle-box { background: #ffffff; border-radius: 18px; border: 2px solid #bfdbfe; box-shadow: 0 6px 20px rgba(22, 59, 136, 0.08); overflow: hidden; display: flex; flex-direction: column; }
+        .phone-item { display: flex; align-items: center; justify-content: space-between; padding: 13px 16px; color: var(--slate-800); border-bottom: 1px solid #e2e8f0; transition: background 0.2s ease; }
+        .phone-item:last-child { border-bottom: none; }
+        .phone-item:hover { background: #f8fbff; }
+        .phone-info-wrap { display: flex; flex-direction: column; justify-content: center; }
+        .phone-val { font-size: 1.18rem; font-weight: 800; color: var(--primary-blue); direction: ltr; letter-spacing: 0.8px; display: inline-block; }
+        .phone-action-icons { display: flex; align-items: center; gap: 8px; }
+        .icon-btn { width: 42px; height: 42px; border-radius: 12px; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; color: #ffffff; font-size: 1.15rem; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12); transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1); }
+        .icon-btn:hover { transform: translateY(-2px) scale(1.08); box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2); }
+        .icon-btn:active { transform: translateY(0) scale(0.95); }
+        .icon-btn-call { background: linear-gradient(135deg, #163b88, #2563eb); }
+        .icon-btn-whatsapp { background: linear-gradient(135deg, #25d366, #128c7e); font-size: 1.3rem; }
+        .icon-btn-hq-qorti { background: linear-gradient(135deg, #0284c7, #0369a1); }
+        .icon-btn-hq-hwwacha { background: linear-gradient(135deg, #0f766e, #14b8a6); }
+
+        /* WORKING HOURS & GENERAL CARDS */
+        .hours-card { background: #ffffff; border-radius: 18px; padding: 16px 18px; border: 2px solid #bfdbfe; box-shadow: 0 6px 20px rgba(22, 59, 136, 0.08); display: flex; flex-direction: column; gap: 12px; }
+        .hours-header { display: flex; align-items: center; justify-content: space-between; padding-bottom: 10px; border-bottom: 1px solid #e2e8f0; }
+        .hours-title { display: flex; align-items: center; gap: 10px; font-size: 0.95rem; font-weight: 800; color: var(--primary-blue); }
+        .hours-icon-box { width: 34px; height: 34px; border-radius: 9px; background: linear-gradient(135deg, #0284c7, #0369a1); color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 0.95rem; }
+        .hours-status-badge { background: #ecfdf5; color: #059669; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 9999px; border: 1px solid #a7f3d0; display: flex; align-items: center; gap: 6px; }
+        .status-dot-green { width: 6px; height: 6px; background-color: #10b981; border-radius: 50%; }
+        .hours-status-badge.closed { background: #fef2f2; color: #dc2626; border-color: #fecaca; }
+        .hours-status-badge.closed .status-dot-green { background-color: #ef4444; box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2); }
+        .hours-row { display: flex; align-items: center; justify-content: space-between; font-size: 0.88rem; color: var(--slate-800); padding: 2px 0; }
+        .hours-label { font-weight: 700; color: var(--slate-600); display: flex; align-items: center; gap: 6px; }
+        .hours-val { font-weight: 800; color: var(--primary-blue); direction: ltr; }
+
+        /* GPS LOCATION CARDS */
+        .gps-card { background: #ffffff; border-radius: 18px; padding: 14px; border: 1.5px solid #bfdbfe; box-shadow: 0 4px 14px rgba(22, 59, 136, 0.05); display: flex; flex-direction: column; gap: 12px; transition: all 0.25s ease; text-decoration: none; color: inherit; }
+        .gps-card:hover { transform: translateY(-2px); border-color: #0284c7; box-shadow: 0 8px 24px rgba(2, 132, 199, 0.18); }
+        .gps-card-header { display: flex; align-items: center; justify-content: space-between; }
+        .gps-photo-preview { width: 100%; height: 220px; border-radius: 14px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; border: 1px solid #bfdbfe; box-shadow: inset 0 0 15px rgba(0,0,0,0.15); background-color: #1e293b; }
+        .gps-bg-img { position: absolute; top: -5px; left: -5px; width: calc(100% + 10px); height: calc(100% + 10px); object-fit: cover; object-position: center; filter: blur(1.5px) brightness(0.92); transform: scale(1.02); transition: transform 0.4s ease, filter 0.4s ease; }
+        .gps-card:hover .gps-bg-img { transform: scale(1.06); filter: blur(0.8px) brightness(0.96); }
+        .gps-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(180deg, rgba(15, 23, 42, 0.1) 0%, rgba(15, 23, 42, 0.35) 100%); z-index: 1; }
+        .gps-pin-marker { width: 48px; height: 48px; background: rgba(255, 255, 255, 0.95); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3); border: 3px solid #0284c7; color: #e02424; font-size: 1.5rem; position: relative; z-index: 2; animation: bounceGPS 1.8s infinite ease-in-out; }
+        @keyframes bounceGPS { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-8px) scale(1.08); } }
+        .gps-map-btn { position: absolute; bottom: 10px; left: 10px; background: rgba(255, 255, 255, 0.95); color: #0284c7; padding: 4px 12px; border-radius: 8px; font-size: 0.74rem; font-weight: 800; display: flex; align-items: center; gap: 5px; z-index: 2; box-shadow: 0 3px 8px rgba(0,0,0,0.18); }
+
+        /* BIO LINK CARDS */
+        .bio-link { background: #ffffff; border-radius: 16px; padding: 13px 16px; display: flex; align-items: center; justify-content: space-between; text-decoration: none; color: var(--slate-800); font-weight: 700; border: 1.5px solid #bfdbfe; box-shadow: 0 4px 14px rgba(22, 59, 136, 0.05); transition: all 0.25s ease; }
+        .bio-link:hover { transform: translateY(-2px); border-color: #60a5fa; box-shadow: 0 8px 22px rgba(22, 59, 136, 0.12); }
+        .bio-link:active { transform: translateY(0); }
+        .link-left { display: flex; align-items: center; gap: 13px; }
+        .icon-box { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.35rem; color: #ffffff; flex-shrink: 0; }
+        .bg-facebook-box { background: linear-gradient(135deg, #1877f2, #0d6efd); }
+        .bg-youtube-box { background: linear-gradient(135deg, #ff0000, #cc0000); }
+        .bg-tiktok-box { background: linear-gradient(135deg, #0f172a, #334155); }
+        .bg-insta-box { background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+        .bg-email-box { background: linear-gradient(135deg, #ea4335, #c5221f); }
+        .bg-map-box { background: linear-gradient(135deg, #0284c7, #0369a1); }
+        .bg-hq-box { background: linear-gradient(135deg, #0f766e, #14b8a6); }
+        .link-meta { text-align: right; }
+        .link-meta .title { font-size: 1rem; font-weight: 800; color: var(--slate-800); }
+        .link-meta .subtitle { font-size: 0.8rem; color: var(--slate-500); font-weight: 600; }
+        .arrow-right { color: #94a3b8; font-size: 0.9rem; }
+
+        /* FEEDBACK CARD STYLES */
+        .feedback-card-custom { background: #ffffff; border-radius: 20px; padding: 18px 16px; border: 2px solid #bfdbfe; box-shadow: 0 8px 24px rgba(22, 59, 136, 0.08); display: flex; flex-direction: column; gap: 12px; }
+        .input-group-custom { position: relative; width: 100%; display: flex; align-items: center; }
+        .input-icon-custom { position: absolute; right: 14px; color: #94a3b8; font-size: 0.95rem; pointer-events: none; }
+        .field-custom { width: 100%; padding: 11px 40px 11px 14px; border-radius: 12px; border: 1.5px solid #cbd5e1; font-size: 0.88rem; font-family: inherit; color: var(--slate-800); background: #f8fbff; outline: none; transition: all 0.25s ease; }
+        .field-custom:focus { border-color: var(--primary-blue); background: #ffffff; box-shadow: 0 0 0 3px rgba(22, 59, 136, 0.12); }
+        .textarea-custom { width: 100%; padding: 12px 14px; border-radius: 12px; border: 1.5px solid #cbd5e1; font-size: 0.88rem; font-family: inherit; color: var(--slate-800); background: #f8fbff; outline: none; resize: vertical; min-height: 95px; line-height: 1.5; transition: all 0.25s ease; }
+        .textarea-custom:focus { border-color: var(--primary-blue); background: #ffffff; box-shadow: 0 0 0 3px rgba(22, 59, 136, 0.12); }
+        .send-btn-custom { background: linear-gradient(135deg, #163b88 0%, #2563eb 100%); color: #ffffff; border: none; border-radius: 12px; padding: 12px; font-size: 0.98rem; font-weight: 800; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 6px 18px rgba(22, 59, 136, 0.25); transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1); }
+        .send-btn-custom:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(22, 59, 136, 0.35); }
+        .send-btn-custom:active { transform: translateY(0) scale(0.98); }
+
+        /* PROGRAMS & ACTIVITIES CAROUSEL SECTION */
+        .programs-section { background: #ffffff; border-radius: 18px; padding: 16px 10px; border: 2px solid #bfdbfe; box-shadow: 0 6px 20px rgba(22, 59, 136, 0.08); overflow: hidden; text-align: center; }
+        .programs-carousel-container { position: relative; width: 100%; height: 310px; overflow: hidden; margin-top: 5px; direction: ltr; cursor: grab; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; touch-action: pan-y; }
+        .programs-carousel-container:active { cursor: grabbing; }
+        .programs-track { display: flex; align-items: center; position: absolute; top: 0; left: 0; height: 100%; transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1); will-change: transform; }
+        .program-slide { width: 140px; height: 215px; margin: 0 10px; border-radius: 12px; overflow: hidden; flex-shrink: 0; transition: all 0.7s cubic-bezier(0.25, 1, 0.5, 1); box-shadow: 0 4px 10px rgba(0,0,0,0.1); border: 2px solid #e2e8f0; background-color: #f8fafc; filter: blur(4px) grayscale(40%); transform: scale(0.82); opacity: 0.45; display: flex; align-items: center; justify-content: center; cursor: pointer; pointer-events: auto; }
+        .program-slide img { width: 100%; height: 100%; object-fit: contain; display: block; pointer-events: none; }
+        .program-slide.active { width: 195px; height: 290px; filter: blur(0px) grayscale(0%); transform: scale(1); opacity: 1; border-color: var(--primary-blue); box-shadow: 0 10px 25px rgba(22, 59, 136, 0.35); z-index: 10; }
+        .programs-track.no-anim, .programs-track.no-anim .program-slide { transition: none !important; }
+
+        /* LIGHTBOX MODAL */
+        .lightbox-modal { display: none; position: fixed; z-index: 9999; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(15, 23, 42, 0.92); backdrop-filter: blur(8px); align-items: center; justify-content: center; padding: 20px; opacity: 0; transition: opacity 0.3s ease, background-color 0.25s ease; touch-action: pinch-zoom; overscroll-behavior: contain; }
+        .lightbox-modal.show { display: flex; opacity: 1; }
+        .lightbox-content { max-width: 95%; max-height: 85vh; border-radius: 14px; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5); border: 2px solid rgba(255, 255, 255, 0.2); object-fit: contain; transform: scale(0.9); transition: transform 0.3s ease; }
+        .lightbox-modal.show .lightbox-content { transform: scale(1); }
+        .lightbox-close { position: absolute; top: 20px; left: 20px; width: 44px; height: 44px; background: rgba(255, 255, 255, 0.2); color: #ffffff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; cursor: pointer; border: 1px solid rgba(255, 255, 255, 0.4); transition: background 0.2s ease; z-index: 2; }
+        .lightbox-close:hover { background: rgba(255, 255, 255, 0.35); }
+
+        /* FOOTER */
+        footer { text-align: center; padding: 16px 10px 5px; font-size: 0.85rem; color: var(--slate-600); font-weight: 700; position: relative; z-index: 1; }
+        footer span { color: var(--primary-blue); }
+    </style>
+</head>
+<body>
+
+    <div class="bg-pattern"></div>
+
+    <div class="main-container">
+
+        <!-- Top Badge -->
+        <div class="top-badge">
+            <span class="pulse-dot"></span>
+            <span>الصفحة الرسمية المعتمدة</span>
+        </div>
+
+        <!-- HEADER: Official Logo & Calligraphy Banner Images -->
+        <header class="header-card">
+            <div class="logo-wrap">
+                <img src="1.png" alt="شعار مؤسسة تازمارت الخيرية">
+            </div>
+
+            <div class="calligraphy-banner">
+                <img src="2.png" alt="مؤسسة تازمارت الخيرية - غرداية - الجزائر">
+            </div>
+        </header>
+
+        <!-- FREE PATIENT TRANSPORT SECTION -->
+        <section class="transport-card">
+            <div class="transport-header">
+                <h2 class="transport-title">خدمة النقل المجاني للمرضى</h2>
+            </div>
+
+            <div class="ambulance-banner-container">
+                <img class="ambulance-bg-img" src="ambulance.png" onerror="this.src=this.src.endsWith('.png')?'ambulance.jpg':'ambulance.jpeg'" alt="سيارة إسعاف مؤسسة تازمارت">
+                <div class="ambulance-gradient-overlay"></div>
+
+                <div class="ambulance-overlay-actions">
+                    <a href="https://wa.me/213560605550" target="_blank" rel="noopener noreferrer" class="amb-btn amb-btn-whatsapp">
+                        <div class="amb-btn-label">
+                            <i class="fa-brands fa-whatsapp" style="font-size: 1.15rem;"></i>
+                            <span>واتساب الحجز</span>
+                        </div>
+                        <span class="amb-btn-num">05.60.60.55.50</span>
+                    </a>
+
+                    <a href="tel:0697777879" class="amb-btn amb-btn-call">
+                        <div class="amb-btn-label">
+                            <i class="fa-solid fa-phone-volume" style="font-size: 0.95rem;"></i>
+                            <span>اتصال هاتفي</span>
+                        </div>
+                        <span class="amb-btn-num">06.97.77.78.79</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: Administration Mobile Phone Numbers -->
+        <div class="section-label">
+            <div class="section-label-main">
+                <i class="fa-solid fa-phone-flip"></i>
+                <span>أرقام الاتصال بالإدارة</span>
+            </div>
+        </div>
+
+        <div class="phones-rectangle-box">
+            <!-- الرقم الأول -->
+            <div class="phone-item">
+                <div class="phone-info-wrap">
+                    <span class="phone-val">06.62.50.88.76</span>
+                </div>
+                <div class="phone-action-icons">
+                    <a href="https://wa.me/213662508876" target="_blank" rel="noopener noreferrer" class="icon-btn icon-btn-whatsapp" title="محادثة واتساب">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                    <a href="tel:0662508876" class="icon-btn icon-btn-call" title="اتصال هاتفي">
+                        <i class="fa-solid fa-phone"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- الرقم الثاني -->
+            <div class="phone-item">
+                <div class="phone-info-wrap">
+                    <span class="phone-val">05.56.26.42.37</span>
+                </div>
+                <div class="phone-action-icons">
+                    <a href="tel:0556264237" class="icon-btn icon-btn-call" title="اتصال هاتفي">
+                        <i class="fa-solid fa-phone"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- الرقم الثالث -->
+            <div class="phone-item">
+                <div class="phone-info-wrap">
+                    <span class="phone-val">06.74.32.21.25</span>
+                </div>
+                <div class="phone-action-icons">
+                    <a href="tel:0674322125" class="icon-btn icon-btn-call" title="اتصال هاتفي">
+                        <i class="fa-solid fa-phone"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ======================= مقر القرطي ======================= -->
+        <div class="section-label">
+            <div class="section-label-main">
+                <i class="fa-solid fa-building-flag" style="color: var(--primary-blue);"></i>
+                <span>مقر القرطي</span>
+            </div>
+        </div>
+
+        <!-- 1. رقم مقر القرطي -->
+        <div class="phones-rectangle-box">
+            <div class="phone-item">
+                <div class="phone-info-wrap">
+                    <span class="phone-val">06.97.77.78.79</span>
+                </div>
+                <div class="phone-action-icons">
+                    <a href="tel:0697777879" class="icon-btn icon-btn-hq-qorti" title="اتصال بمقر القرطي">
+                        <i class="fa-solid fa-phone"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. أوقات عمل مقر القرطي -->
+        <div class="hours-card">
+            <div class="hours-header">
+                <div class="hours-title">
+                    <div class="hours-icon-box">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+                    <span>أوقات العمل والاستقبال (القرطي)</span>
+                </div>
+                <div class="hours-status-badge live-work-badge" id="badgeQorti">
+                    <span class="status-dot-green"></span>
+                    <span class="badge-text">مفتوح للخدمة</span>
+                </div>
+            </div>
+
+            <div class="hours-row">
+                <span class="hours-label"><i class="fa-regular fa-calendar-days"></i> أيام العمل:</span>
+                <span style="font-weight: 800; color: var(--slate-800);">من السبت إلى الخميس</span>
+            </div>
+
+            <div class="hours-row">
+                <span class="hours-label"><i class="fa-solid fa-sun" style="color: #f59e0b;"></i> الفترة الصباحية فقط:</span>
+                <span class="hours-val">08:30 - 14:00</span>
+            </div>
+
+            <div class="hours-row" style="border-top: 1px dashed #e2e8f0; padding-top: 6px;">
+                <span class="hours-label"><i class="fa-solid fa-ban" style="color: #ef4444;"></i> يوم الجمعة:</span>
+                <span style="font-weight: 800; color: #ef4444;">عطلة أسبوعية</span>
+            </div>
+        </div>
+
+        <!-- 3. GPS مقر القرطي -->
+        <a href="https://maps.app.goo.gl/9Z2viA2rpUSNgmHA8?g_st=ac" target="_blank" rel="noopener noreferrer" class="gps-card">
+            <div class="gps-card-header">
+                <div class="link-left">
+                    <div class="icon-box bg-map-box">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                    </div>
+                    <div class="link-meta">
+                        <div class="title" style="color: var(--primary-blue);">موقع مقر القرطي (GPS)</div>
+                        <div class="subtitle">طريق القرطي، قبل ابتدائية الشيخ حمو باباوموسى</div>
+                    </div>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square arrow-right" style="color: #0284c7;"></i>
+            </div>
+            <div class="gps-photo-preview">
+                <img class="gps-bg-img" src="hq_qorti.jpg" onerror="this.src=this.src.endsWith('.jpg')?'hq_qorti.png':'hq_qorti.jpeg'" alt="واجهة مقر القرطي">
+                <div class="gps-overlay"></div>
+                <div class="gps-pin-marker">
+                    <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <span class="gps-map-btn"><i class="fa-solid fa-diamond-turn-right"></i> فتح في خرائط Google</span>
+            </div>
+        </a>
+
+        <!-- ======================= مقر حواشة ======================= -->
+        <div class="section-label">
+            <div class="section-label-main">
+                <i class="fa-solid fa-building-flag" style="color: #0f766e;"></i>
+                <span>مقر حواشة</span>
+            </div>
+        </div>
+
+        <!-- 1. أرقام هواتف مقر حواشة -->
+        <div class="phones-rectangle-box">
+            <!-- الرقم الأول -->
+            <div class="phone-item">
+                <div class="phone-info-wrap">
+                    <span class="phone-val">05.49.89.75.80</span>
+                </div>
+                <div class="phone-action-icons">
+                    <a href="tel:0549897580" class="icon-btn icon-btn-hq-hwwacha" title="اتصال بمقر حواشة">
+                        <i class="fa-solid fa-phone"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- الرقم الثاني -->
+            <div class="phone-item">
+                <div class="phone-info-wrap">
+                    <span class="phone-val">05.52.37.25.21</span>
+                </div>
+                <div class="phone-action-icons">
+                    <a href="tel:0552372521" class="icon-btn icon-btn-hq-hwwacha" title="اتصال بمقر حواشة">
+                        <i class="fa-solid fa-phone"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. أوقات عمل مقر حواشة -->
+        <div class="hours-card">
+            <div class="hours-header">
+                <div class="hours-title">
+                    <div class="hours-icon-box" style="background: linear-gradient(135deg, #0f766e, #14b8a6);">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+                    <span style="color: #0f766e;">أوقات العمل والاستقبال (حواشة)</span>
+                </div>
+                <div class="hours-status-badge live-work-badge" id="badgeHwwacha">
+                    <span class="status-dot-green"></span>
+                    <span class="badge-text">مفتوح للخدمة</span>
+                </div>
+            </div>
+
+            <div class="hours-row">
+                <span class="hours-label"><i class="fa-regular fa-calendar-days"></i> أيام العمل:</span>
+                <span style="font-weight: 800; color: var(--slate-800);">من السبت إلى الخميس</span>
+            </div>
+
+            <div class="hours-row" style="align-items: flex-start;">
+                <span class="hours-label"><i class="fa-solid fa-moon" style="color: #0f766e;"></i> الفترة المسائية فقط:</span>
+                <span style="font-weight: 800; color: #0f766e; text-align: left; line-height: 1.4;">
+                    من ساعة قبل أذان المغرب<br>إلى ساعة بعد صلاة العشاء
+                </span>
+            </div>
+
+            <div class="hours-row" id="hwwachaTodayRow">
+                <span class="hours-label"><i class="fa-regular fa-clock" style="color: #0f766e;"></i> موعد اليوم (تقريباً):</span>
+                <span class="hours-val" id="hwwachaTodayTimes" style="color: #0f766e;">--:-- - --:--</span>
+            </div>
+
+            <div class="hours-row" style="border-top: 1px dashed #e2e8f0; padding-top: 6px;">
+                <span class="hours-label"><i class="fa-solid fa-ban" style="color: #ef4444;"></i> يوم الجمعة:</span>
+                <span style="font-weight: 800; color: #ef4444;">عطلة أسبوعية</span>
+            </div>
+        </div>
+
+        <!-- 3. GPS مقر حواشة -->
+        <a href="https://maps.app.goo.gl/XLMpkWZ9KpA9V1zK9" target="_blank" rel="noopener noreferrer" class="gps-card">
+            <div class="gps-card-header">
+                <div class="link-left">
+                    <div class="icon-box bg-hq-box">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                    </div>
+                    <div class="link-meta">
+                        <div class="title" style="color: #0f766e;">موقع مقر حواشة (GPS)</div>
+                        <div class="subtitle">مقر حواشة، بجانب مدرسة الإصلاح – غرداية</div>
+                    </div>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square arrow-right" style="color: #0f766e;"></i>
+            </div>
+            <div class="gps-photo-preview">
+                <img class="gps-bg-img" src="hq_hwwacha.jpg" onerror="this.src=this.src.endsWith('.jpg')?'hq_hwwacha.png':'hq_hwwacha.jpeg'" alt="واجهة مقر حواشة">
+                <div class="gps-overlay"></div>
+                <div class="gps-pin-marker" style="border-color: #0f766e;">
+                    <i class="fa-solid fa-location-dot" style="color: #0f766e;"></i>
+                </div>
+                <span class="gps-map-btn" style="color: #0f766e;"><i class="fa-solid fa-diamond-turn-right"></i> فتح في خرائط Google</span>
+            </div>
+        </a>
+
+        <!-- ======================= مواقع التواصل الاجتماعي ======================= -->
+        <div class="section-label">
+            <div class="section-label-main">
+                <i class="fa-solid fa-share-nodes"></i>
+                <span>مواقع التواصل الاجتماعي</span>
+            </div>
+        </div>
+
+        <!-- Facebook -->
+        <a href="https://www.facebook.com/tazmarte/" target="_blank" rel="noopener noreferrer" class="bio-link">
+            <div class="link-left">
+                <div class="icon-box bg-facebook-box">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </div>
+                <div class="link-meta">
+                    <div class="title">صفحة الفيسبوك</div>
+                    <div class="subtitle">@tazmarte</div>
+                </div>
+            </div>
+            <i class="fa-solid fa-chevron-left arrow-right"></i>
+        </a>
+
+        <!-- YouTube -->
+        <a href="https://youtube.com/@tazmarte?si=1f7x8gO-Iem2GTU7" target="_blank" rel="noopener noreferrer" class="bio-link">
+            <div class="link-left">
+                <div class="icon-box bg-youtube-box">
+                    <i class="fa-brands fa-youtube"></i>
+                </div>
+                <div class="link-meta">
+                    <div class="title">قناة اليوتيوب</div>
+                    <div class="subtitle">@tazmarte</div>
+                </div>
+            </div>
+            <i class="fa-solid fa-chevron-left arrow-right"></i>
+        </a>
+
+        <!-- TikTok -->
+        <a href="https://www.tiktok.com/@tazmarte?_r=1&_t=ZS-9AZhBVeFWXY" target="_blank" rel="noopener noreferrer" class="bio-link">
+            <div class="link-left">
+                <div class="icon-box bg-tiktok-box">
+                    <i class="fa-brands fa-tiktok"></i>
+                </div>
+                <div class="link-meta">
+                    <div class="title">حساب التيك توك</div>
+                    <div class="subtitle">@tazmarte</div>
+                </div>
+            </div>
+            <i class="fa-solid fa-chevron-left arrow-right"></i>
+        </a>
+
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/tazmerte?rpxt=MW11OWR3YnpxZDA2OQ==" target="_blank" rel="noopener noreferrer" class="bio-link">
+            <div class="link-left">
+                <div class="icon-box bg-insta-box">
+                    <i class="fa-brands fa-instagram"></i>
+                </div>
+                <div class="link-meta">
+                    <div class="title">حساب الانستجرام</div>
+                    <div class="subtitle">@tazmerte</div>
+                </div>
+            </div>
+            <i class="fa-solid fa-chevron-left arrow-right"></i>
+        </a>
+
+        <!-- Email -->
+        <a href="mailto:tazmarte47@gmail.com" class="bio-link">
+            <div class="link-left">
+                <div class="icon-box bg-email-box">
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+                <div class="link-meta">
+                    <div class="title">البريد الإلكتروني</div>
+                    <div class="subtitle" style="font-family: sans-serif;">tazmarte47@gmail.com</div>
+                </div>
+            </div>
+            <i class="fa-solid fa-chevron-left arrow-right"></i>
+        </a>
+
+        <!-- ======================= بوكس: نتشرف باقتراحاتكم واستفسراتكم ======================= -->
+        <div class="section-label">
+            <div class="section-label-main">
+                <i class="fa-solid fa-envelope-open-text" style="color: var(--primary-blue);"></i>
+                <span>نتشرف باقتراحاتكم واستفسراتكم</span>
+            </div>
+        </div>
+
+        <div class="feedback-card-custom">
+            <form id="tgFeedbackForm" style="display: flex; flex-direction: column; gap: 11px;">
+                <!-- حقل الاسم (اختياري) -->
+                <div class="input-group-custom">
+                    <i class="fa-solid fa-user input-icon-custom"></i>
+                    <input type="text" id="tgName" class="field-custom" placeholder="الاسم الكامل (اختياري)">
+                </div>
+
+                <!-- حقل الهاتف (اختياري) -->
+                <div class="input-group-custom">
+                    <i class="fa-solid fa-phone input-icon-custom"></i>
+                    <input type="tel" id="tgPhone" class="field-custom" placeholder="رقم الهاتف (اختياري)" dir="rtl">
+                </div>
+
+                <!-- حقل نص الرسالة -->
+                <textarea id="tgMessage" class="textarea-custom" placeholder="لن يتم تسجيل أو إرسال أي معلومة تكشف عن هويتك" required></textarea>
+
+                <!-- زر الإرسال -->
+                <button type="submit" id="tgSubmitBtn" class="send-btn-custom">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    <span>إرسال الرسالة</span>
+                </button>
+
+                <!-- رسالة الحالة بعد الضغط -->
+                <div id="tgStatus" style="font-size: 0.85rem; font-weight: 800; text-align: center; display: none; padding: 4px 0;"></div>
+            </form>
+        </div>
+
+        <!-- ======================= البرامج والأنشطة ======================= -->
+        <div class="section-label">
+            <div class="section-label-main">
+                <i class="fa-solid fa-images"></i>
+                <span>من برامجنا ونشاطاتنا</span>
+            </div>
+            <span class="section-subnote">اضغط لرؤية التفاصيل</span>
+        </div>
+
+        <div class="programs-section">
+            <div class="programs-carousel-container" id="carouselContainer">
+                <div class="programs-track" id="programsTrack">
+                    <div class="program-slide"><img src="img1.jpg" loading="lazy" onerror="tryNext(this, ['img1.jpeg', 'img1.png', 'img1.JPG'])" alt="نشاط 1"></div>
+                    <div class="program-slide"><img src="img2.jpg" loading="lazy" onerror="tryNext(this, ['img2.jpeg', 'img2.png', 'img2.JPG'])" alt="نشاط 2"></div>
+                    <div class="program-slide"><img src="img3.jpg" loading="lazy" onerror="tryNext(this, ['img3.jpeg', 'img3.png', 'img3.JPG'])" alt="نشاط 3"></div>
+                    <div class="program-slide"><img src="img4.jpg" loading="lazy" onerror="tryNext(this, ['img4.jpeg', 'img4.png', 'img4.JPG'])" alt="نشاط 4"></div>
+                    <div class="program-slide"><img src="img5.jpg" loading="lazy" onerror="tryNext(this, ['img5.jpeg', 'img5.png', 'img5.JPG'])" alt="نشاط 5"></div>
+                    <div class="program-slide"><img src="img6.jpg" loading="lazy" onerror="tryNext(this, ['img6.jpeg', 'img6.png', 'img6.JPG'])" alt="نشاط 6"></div>
+                    <div class="program-slide"><img src="img7.jpg" loading="lazy" onerror="tryNext(this, ['img7.jpeg', 'img7.png', 'img7.JPG'])" alt="نشاط 7"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- LIGHTBOX MODAL -->
+    <div class="lightbox-modal" id="lightboxModal">
+        <div class="lightbox-close" id="lightboxClose" role="button" aria-label="إغلاق الصورة">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        <img class="lightbox-content" id="lightboxImg" src="" alt="معاينة الصورة المكبرة">
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        جميع الحقوق محفوظة © <span>مؤسسة تازمارت الخيرية</span> – غرداية
+    </footer>
+
+    <!-- سكريبت التشغيل وأوقات العمل + السلايدر + تيليجرام -->
+    <script>
+        /* ================= حالة أوقات العمل حسب توقيت غرداية ================= */
+        const TZ = 'Africa/Algiers';
+        const TZ_OFFSET = 1;
+        const LAT = 32.4909, LON = 3.6735;
+        const ISHA_ANGLE = 17;
+        const MAGHRIB_OFFSET_MIN = 0;
+        const ISHA_OFFSET_MIN = 0;
+        const QORTI_OPEN = 8 * 60 + 30;
+        const QORTI_CLOSE = 14 * 60;
+
+        const RAD = Math.PI / 180;
+        const sinD = a => Math.sin(a * RAD);
+        const cosD = a => Math.cos(a * RAD);
+        const fixA = a => ((a % 360) + 360) % 360;
+        const fixH = h => ((h % 24) + 24) % 24;
+
+        function julian(y, m, d) {
+            if (m <= 2) { y -= 1; m += 12; }
+            const A = Math.floor(y / 100);
+            const B = 2 - A + Math.floor(A / 4);
+            return Math.floor(365.25 * (y + 4716)) + Math.floor(30.6001 * (m + 1)) + d + B - 1524.5;
+        }
+
+        function sunPos(jd) {
+            const D = jd - 2451545.0;
+            const g = fixA(357.529 + 0.98560028 * D);
+            const q = fixA(280.459 + 0.98564736 * D);
+            const L = fixA(q + 1.915 * sinD(g) + 0.020 * sinD(2 * g));
+            const e = 23.439 - 0.00000036 * D;
+            const RA = fixH(Math.atan2(cosD(e) * sinD(L), cosD(L)) / RAD / 15);
+            return { decl: Math.asin(sinD(e) * sinD(L)) / RAD, eqt: q / 15 - RA };
+        }
+
+        function prayerTimes(y, m, d) {
+            const jd = julian(y, m, d) - LON / (15 * 24);
+            const pos = t => sunPos(jd + t / 24);
+            const noon = fixH(12 - pos(12).eqt);
+            const at = (angle, t) => {
+                const decl = pos(t).decl;
+                const c = (-sinD(angle) - sinD(decl) * sinD(LAT)) / (cosD(decl) * cosD(LAT));
+                return noon + Math.acos(Math.max(-1, Math.min(1, c))) / RAD / 15;
+            };
+            const toLocal = h => (h + TZ_OFFSET - LON / 15) * 60;
+            return {
+                maghrib: toLocal(at(0.833, 18)) + MAGHRIB_OFFSET_MIN,
+                isha: toLocal(at(ISHA_ANGLE, 20)) + ISHA_OFFSET_MIN
+            };
+        }
+
+        function computeStatus(n) {
+            const isFriday = n.weekday === 'Fri';
+            const pt = prayerTimes(n.y, n.m, n.d);
+            const hwFrom = pt.maghrib - 60;
+            const hwTo = pt.isha + 60;
+            return {
+                isFriday: isFriday,
+                hwFrom: hwFrom,
+                hwTo: hwTo,
+                qortiOpen: !isFriday && n.minutes >= QORTI_OPEN && n.minutes < QORTI_CLOSE,
+                hwwachaOpen: !isFriday && n.minutes >= hwFrom && n.minutes < hwTo
+            };
+        }
+
+        function ghardaiaNow() {
+            const parts = new Intl.DateTimeFormat('en-US', {
+                timeZone: TZ, weekday: 'short', year: 'numeric', month: 'numeric',
+                day: 'numeric', hour: 'numeric', minute: 'numeric', hourCycle: 'h23'
+            }).formatToParts(new Date());
+            const o = {};
+            parts.forEach(p => o[p.type] = p.value);
+            return { weekday: o.weekday, y: +o.year, m: +o.month, d: +o.day, minutes: (+o.hour % 24) * 60 + (+o.minute) };
+        }
+
+        function fmtTime(mins) {
+            const t = Math.round(mins);
+            return String(Math.floor(t / 60) % 24).padStart(2, '0') + ':' + String(t % 60).padStart(2, '0');
+        }
+
+        function setBadge(badge, isOpen) {
+            if (!badge) return;
+            badge.classList.toggle('closed', !isOpen);
+            const txt = badge.querySelector('.badge-text');
+            if (txt) txt.textContent = isOpen ? 'مفتوح للخدمة' : 'مغلق حالياً';
+        }
+
+        function updateWorkStatus() {
+            const s = computeStatus(ghardaiaNow());
+            setBadge(document.getElementById('badgeQorti'), s.qortiOpen);
+            setBadge(document.getElementById('badgeHwwacha'), s.hwwachaOpen);
+
+            const row = document.getElementById('hwwachaTodayRow');
+            const val = document.getElementById('hwwachaTodayTimes');
+            if (row && val) {
+                row.style.display = s.isFriday ? 'none' : 'flex';
+                val.textContent = fmtTime(s.hwFrom) + ' - ' + fmtTime(s.hwTo);
+            }
+        }
+
+        updateWorkStatus();
+        setInterval(updateWorkStatus, 60000);
+
+        /* ================= السلايدر التفاعلي والسحب اليدوي ================= */
+        const NORMAL_W = 140;
+        const ACTIVE_W = 195;
+        const SLIDE_MARGIN = 10;
+        const STEP = NORMAL_W + SLIDE_MARGIN * 2;
+
+        function tryNext(img, fallbacks) {
+            if (!img.dataset.step) img.dataset.step = 0;
+            let step = parseInt(img.dataset.step);
+            if (step < fallbacks.length) {
+                img.src = fallbacks[step];
+                img.dataset.step = step + 1;
+            } else {
+                const parent = img.closest('.program-slide');
+                if (parent) {
+                    const id = parent.dataset.id;
+                    const trackEl = document.getElementById('programsTrack');
+                    if (id !== undefined && trackEl) {
+                        trackEl.querySelectorAll('.program-slide[data-id="' + id + '"]')
+                            .forEach(s => s.style.display = 'none');
+                    } else {
+                        parent.style.display = 'none';
+                    }
+                    if (window.resetCarousel) window.resetCarousel();
+                }
+            }
+        }
+
+        const container = document.getElementById('carouselContainer');
+        const track = document.getElementById('programsTrack');
+        let currentIndex = 0;
+        let isModalOpen = false;
+        let autoPlayTimer = null;
+
+        function buildInfiniteTrack() {
+            const originals = Array.from(track.querySelectorAll('.program-slide'));
+            originals.forEach((s, i) => s.dataset.id = i);
+
+            const makeClones = () => originals.map(s => {
+                const c = s.cloneNode(true);
+                c.classList.add('clone');
+                return c;
+            });
+
+            makeClones().forEach(c => track.insertBefore(c, originals[0]));
+            makeClones().forEach(c => track.appendChild(c));
+        }
+
+        function getSlides() {
+            return Array.from(track.querySelectorAll('.program-slide'))
+                .filter(s => s.style.display !== 'none');
+        }
+
+        function realCount() {
+            return Array.from(track.querySelectorAll('.program-slide:not(.clone)'))
+                .filter(s => s.style.display !== 'none').length;
+        }
+
+        function getTargetTranslate(idx) {
+            const containerWidth = container.offsetWidth || container.clientWidth || 360;
+            const slideCenter = idx * STEP + SLIDE_MARGIN + ACTIVE_W / 2;
+            return containerWidth / 2 - slideCenter;
+        }
+
+        function updateCarousel(animate = true) {
+            const slides = getSlides();
+            if (slides.length === 0) return;
+
+            if (!animate) track.classList.add('no-anim');
+
+            slides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === currentIndex);
+            });
+
+            track.style.transform = `translateX(${getTargetTranslate(currentIndex)}px)`;
+
+            if (!animate) {
+                void track.offsetWidth;
+                track.classList.remove('no-anim');
+            }
+        }
+
+        function fixLoopPosition() {
+            const n = realCount();
+            if (n === 0) return;
+            if (currentIndex >= 2 * n) {
+                currentIndex -= n;
+                updateCarousel(false);
+            } else if (currentIndex < n) {
+                currentIndex += n;
+                updateCarousel(false);
+            }
+        }
+
+        track.addEventListener('transitionend', (e) => {
+            if (e.target === track && e.propertyName === 'transform') fixLoopPosition();
+        });
+
+        function resetToStart() {
+            currentIndex = realCount();
+            updateCarousel(false);
+        }
+        window.resetCarousel = resetToStart;
+
+        function nextSlide() {
+            if (isModalOpen || isDragging) return;
+            if (getSlides().length === 0) return;
+            fixLoopPosition();
+            currentIndex++;
+            updateCarousel(true);
+        }
+
+        function startAutoPlay() {
+            if (autoPlayTimer) clearInterval(autoPlayTimer);
+            autoPlayTimer = setInterval(nextSlide, 3000);
+        }
+
+        function stopAutoPlay() {
+            if (autoPlayTimer) {
+                clearInterval(autoPlayTimer);
+                autoPlayTimer = null;
+            }
+        }
+
+        /* ================= السحب اليدوي والضغط على الصور =================
+           نستعمل Pointer Events لأنها تجمع اللمس والماوس في نظام واحد،
+           فلا تتكرر الأحداث (لمس + ماوس مُحاكى) كما كان يحدث سابقًا على الهاتف. */
+        const DRAG_START_DISTANCE = 8;   // أقل حركة أفقية (px) لتُعتبر سحبًا
+        const TAP_MAX_DISTANCE = 10;     // أكبر حركة (px) لتبقى اللمسة "ضغطة"
+        const SWIPE_THRESHOLD = 32;      // مسافة السحب اللازمة للانتقال إلى الصورة التالية/السابقة
+
+        let isDragging = false;
+        let activePointerId = null;
+        let startX = 0;
+        let startY = 0;
+        let prevTranslate = 0;
+        let currentTranslate = 0;
+        let pressedSlide = null;
+
+        function resetPointerState() {
+            activePointerId = null;
+            isDragging = false;
+            pressedSlide = null;
+        }
+
+        function onPointerDown(e) {
+            if (isModalOpen || activePointerId !== null) return;
+            if (e.pointerType === 'mouse' && e.button !== 0) return;
+            activePointerId = e.pointerId;
+            isDragging = false;
+            startX = e.clientX;
+            startY = e.clientY;
+            // نحفظ الصورة التي لمسها المستخدم فعلًا حتى لو تحرّك الشريط بعدها
+            pressedSlide = e.target.closest('.program-slide');
+            stopAutoPlay();
+        }
+
+        function onPointerMove(e) {
+            if (e.pointerId !== activePointerId) return;
+            // الماوس: إذا تم ترك الزر خارج النافذة نُنهي السحب
+            if (e.pointerType === 'mouse' && e.buttons === 0) { onPointerUp(e); return; }
+
+            if (!isDragging) {
+                if (Math.abs(e.clientX - startX) < DRAG_START_DISTANCE) return;
+                isDragging = true;
+                pressedSlide = null;
+                fixLoopPosition();
+                prevTranslate = getTargetTranslate(currentIndex);
+                currentTranslate = prevTranslate;
+                startX = e.clientX;
+                track.classList.add('no-anim');
+            }
+            currentTranslate = prevTranslate + (e.clientX - startX);
+            track.style.transform = `translateX(${currentTranslate}px)`;
+        }
+
+        function onPointerUp(e) {
+            if (e.pointerId !== activePointerId) return;
+            const wasDragging = isDragging;
+            const slide = pressedSlide;
+            const moved = Math.hypot(e.clientX - startX, e.clientY - startY);
+            resetPointerState();
+
+            if (wasDragging) {
+                track.classList.remove('no-anim');
+                const movedBy = currentTranslate - prevTranslate;
+                if (movedBy < -SWIPE_THRESHOLD) {
+                    currentIndex++;
+                } else if (movedBy > SWIPE_THRESHOLD) {
+                    currentIndex--;
+                }
+                updateCarousel(true);
+                startAutoPlay();
+            } else if (slide && moved <= TAP_MAX_DISTANCE) {
+                openModal(slide);          // ضغطة حقيقية => تكبير الصورة
+            } else {
+                startAutoPlay();
+            }
+        }
+
+        function onPointerCancel(e) {
+            if (e.pointerId !== activePointerId) return;
+            const wasDragging = isDragging;
+            resetPointerState();
+            if (wasDragging) {
+                track.classList.remove('no-anim');
+                updateCarousel(true);
+            }
+            startAutoPlay();
+        }
+
+        container.addEventListener('pointerdown', onPointerDown);
+        window.addEventListener('pointermove', onPointerMove);
+        window.addEventListener('pointerup', onPointerUp);
+        window.addEventListener('pointercancel', onPointerCancel);
+
+        // إيقاف التمرير التلقائي عند مرور الماوس فقط (الحاسوب) - لا يؤثر على الهاتف
+        container.addEventListener('pointerenter', (e) => {
+            if (e.pointerType === 'mouse') stopAutoPlay();
+        });
+        container.addEventListener('pointerleave', (e) => {
+            if (e.pointerType === 'mouse' && !isModalOpen && activePointerId === null) startAutoPlay();
+        });
+
+        /* ================= Modal Lightbox ================= */
+        const modal = document.getElementById('lightboxModal');
+        const modalImg = document.getElementById('lightboxImg');
+        const modalClose = document.getElementById('lightboxClose');
+
+        const LB_CLOSE_DISTANCE = 90;    // مسافة السحب (px) لإغلاق الصورة
+        let modalOpenedAt = 0;
+        let historyEntryAdded = false;
+        let lbPointerId = null;
+        let lbStartX = 0;
+        let lbStartY = 0;
+        let lbStartTime = 0;
+        let lbMoved = false;
+        let lbIgnoreClickUntil = 0;
+
+        function resetLightboxStyles() {
+            modalImg.style.transition = '';
+            modalImg.style.transform = '';
+            modal.style.transition = '';
+            modal.style.backgroundColor = '';
+        }
+
+        function openModal(slide) {
+            const img = slide.querySelector('img');
+            const src = img && (img.currentSrc || img.src);
+            if (!src) return;
+
+            lbPointerId = null;
+            lbMoved = false;
+            resetLightboxStyles();
+            modalImg.src = src;
+            modal.classList.add('show');
+            isModalOpen = true;
+            modalOpenedAt = Date.now();
+            stopAutoPlay();
+
+            // إضافة خطوة في سجل المتصفح: زر/إيماءة الرجوع في الهاتف تُغلق الصورة بدل مغادرة الصفحة
+            try {
+                history.pushState({ lightbox: true }, '');
+                historyEntryAdded = true;
+            } catch (err) {
+                historyEntryAdded = false;
+            }
+        }
+
+        function hideModal() {
+            modal.classList.remove('show');
+            isModalOpen = false;
+            lbPointerId = null;
+            lbMoved = false;
+            resetLightboxStyles();
+            startAutoPlay();
+        }
+
+        function closeModal() {
+            if (!isModalOpen) return;
+            hideModal();
+            if (historyEntryAdded) {
+                historyEntryAdded = false;
+                try { history.back(); } catch (err) {}
+            }
+        }
+
+        // إيماءة / زر الرجوع في الهاتف
+        window.addEventListener('popstate', () => {
+            if (isModalOpen) {
+                historyEntryAdded = false;
+                hideModal();
+            }
+        });
+
+        // تجاهل النقرة "الشبحية" التي يرسلها المتصفح بعد رفع الإصبع مباشرة من فتح الصورة
+        function isGhostClick() {
+            return Date.now() - modalOpenedAt < 450 || Date.now() < lbIgnoreClickUntil;
+        }
+
+        modalClose.addEventListener('click', () => {
+            if (isGhostClick()) return;
+            closeModal();
+        });
+        modal.addEventListener('click', (e) => {
+            if (e.target !== modal || isGhostClick()) return;
+            closeModal();
+        });
+
+        // السحب باللمس (في أي اتجاه) لإغلاق الصورة المكبّرة
+        modal.addEventListener('pointerdown', (e) => {
+            if (!isModalOpen || lbPointerId !== null) return;
+            if (e.target.closest('#lightboxClose')) return;
+            lbPointerId = e.pointerId;
+            lbStartX = e.clientX;
+            lbStartY = e.clientY;
+            lbStartTime = Date.now();
+            lbMoved = false;
+        });
+
+        modal.addEventListener('pointermove', (e) => {
+            if (e.pointerId !== lbPointerId) return;
+            const dx = e.clientX - lbStartX;
+            const dy = e.clientY - lbStartY;
+            const dist = Math.hypot(dx, dy);
+            if (!lbMoved) {
+                if (dist < 8) return;
+                lbMoved = true;
+                modalImg.style.transition = 'none';
+                modal.style.transition = 'none';
+                try { modal.setPointerCapture(e.pointerId); } catch (err) {}
+            }
+            const p = Math.min(dist / 300, 1);
+            modalImg.style.transform = `translate(${dx}px, ${dy}px) scale(${1 - p * 0.15})`;
+            modal.style.backgroundColor = `rgba(15, 23, 42, ${0.92 * (1 - p * 0.85)})`;
+        });
+
+        function finishLightboxDrag(e, cancelled) {
+            if (e.pointerId !== lbPointerId) return;
+            const dist = Math.hypot(e.clientX - lbStartX, e.clientY - lbStartY);
+            const elapsed = Math.max(Date.now() - lbStartTime, 1);
+            const wasMoved = lbMoved;
+            lbPointerId = null;
+            lbMoved = false;
+            if (wasMoved) lbIgnoreClickUntil = Date.now() + 350;
+
+            const isFlick = dist > 40 && dist / elapsed > 0.6;
+            if (!cancelled && wasMoved && (dist > LB_CLOSE_DISTANCE || isFlick)) {
+                closeModal();
+            } else {
+                resetLightboxStyles();     // رجوع الصورة لمكانها بحركة ناعمة
+            }
+        }
+        modal.addEventListener('pointerup', (e) => finishLightboxDrag(e, false));
+        modal.addEventListener('pointercancel', (e) => finishLightboxDrag(e, true));
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && isModalOpen) {
+                closeModal();
+            }
+        });
+
+        buildInfiniteTrack();
+
+        setTimeout(() => {
+            resetToStart();
+            startAutoPlay();
+        }, 150);
+
+        window.addEventListener('load', () => updateCarousel(false));
+        window.addEventListener('resize', () => updateCarousel(false));
+
+        /* ================= إرسال الاقتراحات والاستفسارات إلى تيليجرام ================= */
+        document.getElementById('tgFeedbackForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const BOT_TOKEN = "8820605285:AAGKVVGbmv7Y-iNM7sQvUFI7532i62QAqYU";
+            const CHAT_ID = "1405225246";
+
+            const nameInput = document.getElementById('tgName');
+            const phoneInput = document.getElementById('tgPhone');
+            const msgInput = document.getElementById('tgMessage');
+            const status = document.getElementById('tgStatus');
+            const btn = document.getElementById('tgSubmitBtn');
+
+            const name = nameInput.value.trim() || "غير محدد (مجهول)";
+            const phone = phoneInput.value.trim() || "غير محدد";
+            const message = msgInput.value.trim();
+
+            if (!message) return;
+
+            btn.disabled = true;
+            btn.style.opacity = '0.7';
+            status.style.display = 'block';
+            status.style.color = '#0284c7';
+            status.textContent = 'جاري إرسال الرسالة...';
+
+            const textToSend = `📬 *رسالة جديدة من الموقع:*\n\n👤 *الاسم:* ${name}\n📞 *الهاتف:* ${phone}\n\n💬 *الرسالة:*\n${message}`;
+            const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${encodeURIComponent(textToSend)}&parse_mode=Markdown`;
+
+            fetch(url)
+                .then(res => res.json())
+                .then(data => {
+                    if (data.ok) {
+                        status.style.color = '#10b981';
+                        status.textContent = '✓ تم إرسال رسالتك بنجاح، شكراً لتواصلكم معنا.';
+                        nameInput.value = '';
+                        phoneInput.value = '';
+                        msgInput.value = '';
+                    } else {
+                        throw new Error();
+                    }
+                })
+                .catch(() => {
+                    status.style.color = '#ef4444';
+                    status.textContent = 'تعذر الإرسال، يرجى التحقق من الاتصال وإعادة المحاولة.';
+                })
+                .finally(() => {
+                    btn.disabled = false;
+                    btn.style.opacity = '1';
+                    setTimeout(() => { status.style.display = 'none'; }, 6000);
+                });
+        });
+    </script>
+
+</body>
+</html>
